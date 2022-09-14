@@ -45,6 +45,12 @@ class LinkedList(object):
         new_node.next = next_holding_pointer
         self.length += 1
 
+    def remove(self, index):
+        leader = self.traverse_to_index(index - 1)
+        unwanted_node = leader.next
+        leader.next = unwanted_node.next
+        self.length -= 1
+
     def traverse_to_index(self, index):
         current_pos = 0
         current_node = self.head
@@ -62,4 +68,6 @@ my_linked_list.prepend(2)
 my_linked_list.insert(2, 75)
 my_linked_list.insert(200, 75)
 my_linked_list.insert(0, 750)
+print(my_linked_list)
+my_linked_list.remove(2)
 print(my_linked_list)
