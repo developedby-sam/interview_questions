@@ -59,6 +59,20 @@ class LinkedList(object):
             current_pos += 1
         return current_node
 
+    def reverse(self):
+        if self.head.next is None:
+            return self.head
+        first_node = self.head
+        self.tail = self.head
+        second_node = first_node.next
+        while second_node:
+            temp = second_node.next
+            second_node.next = first_node
+            first_node = second_node
+            second_node = temp
+        self.head.next = None
+        self.head = first_node
+
 
 my_linked_list = LinkedList(10)
 my_linked_list.append(5)
@@ -68,6 +82,8 @@ my_linked_list.prepend(2)
 my_linked_list.insert(2, 75)
 my_linked_list.insert(200, 75)
 my_linked_list.insert(0, 750)
+# print(my_linked_list)
+# my_linked_list.remove(2)
 print(my_linked_list)
-my_linked_list.remove(2)
+my_linked_list.reverse()
 print(my_linked_list)
