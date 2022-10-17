@@ -24,17 +24,29 @@ class BinarySearchTree(object):
         current_node = self.root
         while True:
             if value < current_node.value:
-                print('go left')
                 if not current_node.left:
                     current_node.left = new_node
                     return False
                 current_node = current_node.left
             else:
-                print('go right')
                 if not current_node.right:
                     current_node.right = new_node
                     return False
                 current_node = current_node.right
+
+    def lookup(self, value):
+        if not self.root:
+            return False
+        
+        current_node = self.root
+        while current_node:
+            if value < current_node.value:
+                current_node = current_node.left
+            elif value > current_node.value:
+                current_node = current_node.right
+            elif value == current_node.value:
+                return current_node
+        return False
 
 
 binary_tree = BinarySearchTree()
@@ -44,4 +56,4 @@ binary_tree.insert(12)
 binary_tree.insert(19)
 binary_tree.insert(19)
 binary_tree.insert(2)
-print(binary_tree)
+print(binary_tree.lookup(22))
