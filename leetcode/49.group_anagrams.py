@@ -27,8 +27,10 @@
 # 0 <= strs[i].length <= 100
 # strs[i] consists of lowercase English letters.
 
+
 from collections import defaultdict
 
+# TIME COMPLEXITY --> O(m*n)
 def groupAnagrams(strs):
     # Dictionary to store anagram groups
     anagram_groups = defaultdict(list)
